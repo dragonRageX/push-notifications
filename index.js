@@ -8,6 +8,7 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 
+app.use(express.static(path.join(__dirname, "client")));
 app.use(bodyParser.json());
 
 const publicVapidKey = `${process.env.PUBLIC_VAPID_KEY}`;
