@@ -1,4 +1,4 @@
-const express = require("require");
+const express = require("express");
 const webpush = require("web-push");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv").config();
@@ -10,8 +10,8 @@ const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 
-const publicVapidKey = `"${process.env.PUBLIC_VAPID_KEY}"`;
-const privateVapidKey = `"${process.env.PRIVATE_VAPID_KEY}"`;
+const publicVapidKey = `${process.env.PUBLIC_VAPID_KEY}`;
+const privateVapidKey = `${process.env.PRIVATE_VAPID_KEY}`;
 
 webpush.setVapidDetails("mailto:test@test.com", publicVapidKey, privateVapidKey);
 
