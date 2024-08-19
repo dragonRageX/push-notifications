@@ -11,7 +11,7 @@ async function send()
 {
     //register Service Worker
     console.log("Registering Service Worker...");
-    const register = await navigator.serviceWorker.register("/serviceWorker.js", { scope: "/" });
+    const register = await navigator.serviceWorker.register("./serviceWorker.js", { scope: "/" });
     console.log("Service Worker registered!");
 
     //register Push
@@ -26,9 +26,9 @@ async function send()
     console.log("Sending Push Notification...");
     const response = await fetch("http://localhost:5000/subscribe", {
         method: "POST",
-        body: JSON.stringify({ subscription }),
+        body: JSON.stringify({ subscription: subscription }),
         headers: {
-            "content-type": "application/json"
+            "Content-type": "application/json"
         }
     });
     console.log("Push Notification sent!");
